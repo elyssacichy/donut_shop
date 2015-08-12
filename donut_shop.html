@@ -1,38 +1,54 @@
 <!DOCTYPE html>
-<<html>
+<html>
 <head>
-  <title>Elyssa's Donut Shop</title>
+  <title>Top Pot Donut Numbers</title>
 </head>
 <body>
   <script type="text/javascript">
-    var Shop = new Object(minCustomers, maxCustomers, aveDonuts) {
-        this.minCustomers = minCustomers;
-        this.maxCustomers = maxCustomers;
-        this.aveDonuts = aveDonuts;
-        //this.customersPerHour?? this.minCust...???
-        //maybe an array for the 12 hours they are open? push customersPerHour to an array?
-        var customersPerHour = function(minCustomers, maxCustomers) {
-            console.log(Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers));
+    var Shop = function(minCustomers, maxCustomers, aveDonuts) {
+          this.minCustomers = minCustomers;
+          this.maxCustomers = maxCustomers;
+          this.aveDonuts = aveDonuts;
+          var customersPerHour  = function() {
+            return Math.floor(Math.random() * (maxCustomers - minCustomers + 1)) + minCustomers;
+          };
+          this.customersPerHour = customersPerHour;
+
+          var donutsPerHour = function() {
+            var numDonuts = customersPerHour() * aveDonuts
+            console.log(numDonuts)
+            return numDonuts;
+          };
+          this.donutsPerHour = donutsPerHour;
+
+          var donutsPerDay = function() {
+            var total = 0;
+            for(var index = 0; index < 12; index++) {
+              total += donutsPerHour();
+            };
+            total = Math.ceil(total);
+            console.log(total);
+            alert("You need to bake " + total + " donuts every day!");
+            return total;
+          };
+          this.donutsPerDay = donutsPerDay;
         };
-        //need to write a function(s) that returns donuts per hour 12 different times, and then adds all the results together and multiplies it by aveDonuts to find how many donuts are needed per day.
-        var donutsPerHour = function(customersPerHour, aveDonuts) {
-          for()
-        }
-      //code here to calculate how many donuts per hour and per day
-    };
 
     var Downtown = new Shop(8, 43, 4.5);
     var CapitolHill = new Shop(4, 37, 2);
     var SLakeUnion = new Shop(9, 23, 6.33);
     var Wedgewood = new Shop(2, 28, 1.25);
     var Ballard = new Shop(8, 58, 3.75);
-
-
-
-
-
-
-
   </script>
+  <header>
+    <h1>How many donuts does each Top Pot location need per day?</h1>
+  </header>
+  <ul>
+    <li>For the <b>Downtown</b> location <input id="clickMe" type="button" value="Click Here!" onclick="Downtown.donutsPerDay();" /></li>
+    <li>For the <b>Capitol Hill</b> location <input id="clickMe" type="button" value="Click Here!" onclick="CapitolHill.donutsPerDay();" /></li>
+    <li>For the <b>South Lake Union</b> location <input id="clickMe" type="button" value="Click Here!" onclick="SLakeUnion.donutsPerDay();" /></li>
+    <li>For the <b>Wedgewood</b> location <input id="clickMe" type="button" value="Click Here!" onclick="Wedgewood.donutsPerDay();" /></li>
+    <li>For the <b>Ballard</b> location <input id="clickMe" type="button" value="Click Here!" onclick="Ballard.donutsPerDay();" /></li>
+  </ul>
 </body>
 </html>
