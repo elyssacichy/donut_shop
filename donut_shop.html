@@ -15,8 +15,8 @@
           this.customersPerHour = customersPerHour;
 
           var donutsPerHour = function() {
-            var numDonuts = customersPerHour() * aveDonuts
-            console.log(numDonuts)
+            var numDonuts = customersPerHour() * aveDonuts;
+            console.log(numDonuts);
             return numDonuts;
           };
           this.donutsPerHour = donutsPerHour;
@@ -25,7 +25,7 @@
             var total = 0;
             for(var index = 0; index < 12; index++) {
               total += donutsPerHour();
-            };
+            }
             total = Math.ceil(total);
             console.log(total);
             alert("You need to bake " + total + " donuts every day!");
