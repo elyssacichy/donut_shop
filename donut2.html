@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top Pot Donut Numbers</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var Shop = function(minCustomers, maxCustomers, aveDonuts) {
+      this.minCustomers = minCustomers;
+      this.maxCustomers = maxCustomers;
+      this.aveDonuts = aveDonuts;
+      var customersPerHour = function() {
+        return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
+      };
+      this.customersPerHour = customersPerHour();
+
+      var donutsPerHour = function() {
+        var numDonuts = customersPerHour() * aveDonuts;
+        console.log(numDonuts);
+        return numDonuts;
+      };
+      this.donutsPerHour = donutsPerHour();
+
+      var donutsPerDay = function() {
+        var total = 0;
+        for (var index = 0; index < 12; index++) {
+          total += donutsPerHour();
+        }
+        total = Math.ceil(total);
+        return total;
+      };
+      this.donutsPerDay = donutsPerDay();
+
+    };
+
+    var Downtown = new Shop(8, 43, 4.5);
+    var CapitolHill = new Shop(4, 37, 2);
+    var SLakeUnion = new Shop(9, 23, 6.33);
+    var Wedgewood = new Shop(2, 28, 1.25);
+    var Ballard = new Shop(8, 58, 3.75);
+  </script>
+</body>
+</html>
