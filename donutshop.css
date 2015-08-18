@@ -1,0 +1,64 @@
+/*****************
+GENERAL
+*****************/
+
+body {
+  font-family: sans-serif;
+}
+
+/*****************
+HEADING
+*****************/
+
+header {
+  color: #fff;
+  background-color: #476CDA;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  padding: 5px 15px;
+}
+
+/*****************
+TABLE
+*****************/
+
+th {
+  font-size: 1.2em;
+  color: #694769;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #E1DAE1;
+}
+
+/*****************
+ASIDE
+*****************/
+
+aside {
+  text-align: center;
+  font-size: 1em;
+}
+
+
+
+
+
+
