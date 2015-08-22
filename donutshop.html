@@ -3,208 +3,45 @@
 <head>
   <title>Top Pot</title>
   <link rel="stylesheet" type="text/css" href="donutshop.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="donutshop.js"></script>
 </head>
 <body>
   <header>
     <h1>Top Pot Donuts</h1>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
   </header>
   <body>
-    <h2>A Table of baking needs:</h2>
+    <h2>Baking Needs By Store:</h2>
+    <p>Click on any store location to find out how many donuts you will need to bake!</p>
     <table>
       <thead>
         <tr>
-          <th></th>
-          <th scope="col">Downtown |</th>
-          <th scope="col">Capitol hill |</th>
-          <th scope="col">South Lake Union |</th>
-          <th scope="col">Wedgewood |</th>
-          <th scope="col">Ballard</th>
+          <th scope="col">Store Name</th>
+          <th scope="col">Average Customers per hour</th>
+          <th scope="col">Average Donuts per Hour</th>
+          <th scope="col">Average Donuts per Day</th>
+        </tr>
+        <tr class="downtownInfo">
+          <td><button class="downtown">Downtown</button></td>
+        </tr>
+        <tr class="capitolHillInfo">
+          <td><button class="capitolHill">Capitol Hill</button></td>
+        </tr>
+        <tr class="sLUnionInfo">
+          <td><button class="sLUnion">S. Lake Union</button></td>
+        </tr>
+        <tr class="wedgewoodInfo">
+          <td><button class="wedgewood">Wedgewood</button></td>
+        </tr>
+        <tr class="ballardInfo">
+          <td><button class="ballard">Ballard</button></td>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">6:00am</th>
-          <td>81</td>
-          <td>64</td>
-          <td>63</td>
-          <td>8</td>
-          <td>68</td>
-        </tr>
-        <tr>
-          <th scope="row">7:00am</th>
-          <td>86</td>
-          <td>22</td>
-          <td>114</td>
-          <td>28</td>
-          <td>218</td>
-        </tr>
-        <tr>
-          <th scope="row">8:00am</th>
-          <td>171</td>
-          <td>8</td>
-          <td>133</td>
-          <td>18</td>
-          <td>102</td>
-        </tr>
-        <tr>
-          <th scope="row">9:00am</th>
-          <td>86</td>
-          <td>30</td>
-          <td>121</td>
-          <td>27</td>
-          <td>60</td>
-        </tr>
-        <tr>
-          <th scope="row">10:00am</th>
-          <td>126</td>
-          <td>36</td>
-          <td>70</td>
-          <td>18</td>
-          <td>210</td>
-        </tr>
-        <tr>
-          <th scope="row">11:00am</th>
-          <td>77</td>
-          <td>64</td>
-          <td>140</td>
-          <td>29</td>
-          <td>109</td>
-        </tr>
-        <tr>
-          <th scope="row">12:00pm</th>
-          <td>180</td>
-          <td>56</td>
-          <td>89</td>
-          <td>30</td>
-          <td>68</td>
-        </tr>
-        <tr>
-          <th scope="row">1:00pm</th>
-          <td>41</td>
-          <td>8</td>
-          <td>121</td>
-          <td>4</td>
-          <td>117</td>
-        </tr>
-        <tr>
-          <th scope="row">2:00pm</th>
-          <td>162</td>
-          <td>18</td>
-          <td>101</td>
-          <td>32</td>
-          <td>38</td>
-        </tr>
-        <tr>
-          <th scope="row">3:00pm</th>
-          <td>86</td>
-          <td>48</td>
-          <td>95</td>
-          <td>9</td>
-          <td>177</td>
-        </tr>
-        <tr>
-          <th scope="row">4:00pm</th>
-          <td>167</td>
-          <td>36</td>
-          <td>133</td>
-          <td>29</td>
-          <td>113</td>
-        </tr>
-        <tr>
-          <th scope="row">5:00pm</th>
-          <td>185</td>
-          <td>14</td>
-          <td>89</td>
-          <td>13</td>
-          <td>214</td>
-        </tr>
-        <tr>
-          <th scope="row">6:00pm</th>
-          <td>162</td>
-          <td>10</td>
-          <td>120</td>
-          <td>35</td>
-          <td>139</td>
-        </tr>
-        <tr id="totals">
-          <th scope="row">Total</th>
-          <td>1,610</td>
-          <td>414</td>
-          <td>1,389</td>
-          <td>280</td>
-          <td>1,693</td>
-        </tr>
-      </tbody>
     </table>
-    <aside>
-      <p class="explain">This table is a static look at the data generated into the console randomly by my js
-      </p>
-      <p>To get new data, simply open your console by clicking "inspect element" in Chrome. Then, type "topPot.getReport()" and press enter. Because the number of customers varies, and this produces a random sampling each time, you my get numbers that are a little different than those shown in the table above.
-      </p>
-      <p>Try it out, and feel free to <a href="mailto:elyssacichy@gmail.com"><em>email </em></a>me if you have any questions!</p>
-    </aside>
-    <script type="text/javascript">
-      var DonutMaster = function() {
-        this.allLocations = [];
-        this.addShop = function(shopLocation) {
-        this.allLocations.push(shopLocation);
-        };
-        this.getReport = function() {
-          for (var index = 0; index < this.allLocations.length; index++) {
-          console.log("for the " + this.allLocations[index].location + " location, you need to bake " + this.allLocations[index].donutsPerHour() + " donuts per hour and " + this.allLocations[index].donutsPerDay() + " donuts per day.");
-    }
-  };
-};
-
-
-
-
-      var Shop = function(minCustomers, maxCustomers, aveDonuts, location) {
-        this.minCustomers = minCustomers;
-        this.maxCustomers = maxCustomers;
-        this.aveDonuts = aveDonuts;
-        this.location = location;
-          this.customersPerHour = function() {
-            return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
-          };
-
-          this.donutsPerHour = function() {
-            var numDonuts = this.customersPerHour() * aveDonuts;
-            console.log(numDonuts);
-            return numDonuts;
-          };
-
-          this.donutsPerDay = function() {
-            var total = 0;
-            for (var index = 0; index < 12; index++) {
-              total += this.donutsPerHour();
-            }
-            total = Math.ceil(total);
-            return total;
-          };
-    };
-
-    var downtown = new Shop(8, 43, 4.5, "Downtown");
-    var capitolHill = new Shop(4, 37, 2, "Capitol Hill");
-    var sLakeUnion = new Shop(9, 23, 6.33, "South Lake Union");
-    var wedgewood = new Shop(2, 28, 1.25, "Wedgewood");
-    var ballard = new Shop(8, 58, 3.75, "Ballard");
-
-    var topPot = new DonutMaster();
-
-    topPot.addShop(downtown);
-    topPot.addShop(capitolHill);
-    topPot.addShop(sLakeUnion);
-    topPot.addShop(wedgewood);
-    topPot.addShop(ballard);
-    </script>
+    <footer>
+      <p>&copy; Elyssa Cichy</p>
+      <a href="mailto:elyssacichy@gmail.com">elyssacichy@gmail.com</a>
+    </footer>
   </body>
 
 </body>

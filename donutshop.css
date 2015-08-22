@@ -5,6 +5,9 @@ GENERAL
 body {
   font-family: sans-serif;
   background-color: #D9E2FA;
+  text-align: center;
+  max-width: 780px;
+  margin: auto;
 }
 
 /*****************
@@ -17,6 +20,7 @@ header {
   width: 100%;
   text-align: center;
   margin: 0;
+  padding: 10px 0;
 }
 
 nav a {
@@ -53,21 +57,31 @@ tr:nth-child(even) {
   background-color: #FCF912;
 }
 
+td {
+  padding: 2px;
+  text-align: center;
+}
+
+button {
+  height: 25px;
+}
+
 /*****************
-ASIDE
+FOOTER
 *****************/
 
-aside {
+footer {
+  font-size: 0.75em;
   text-align: center;
-  font-size: 1em;
-}
-
-.explain {
+  padding: 10px;
+  margin: 15px 0 0;
   color: #694769;
+  clear: both;
+  background-color: #ccc;
+  position: relative;
+  top: -50px;
+  opacity: 0;
 }
-
-
-
 
 
 
