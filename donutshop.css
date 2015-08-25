@@ -58,12 +58,16 @@ tr:nth-child(even) {
 }
 
 td {
-  padding: 2px;
+  padding: 4px;
   text-align: center;
 }
 
 button {
   height: 25px;
+  border: none;
+  display: list-item;
+  background-color: #E1DAE1;
+  font-weight: bold;
 }
 
 /*****************

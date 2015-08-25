@@ -52,22 +52,25 @@ var topPot = new DonutMaster();
   topPot.addShop(ballard);
 
 //jQuery Stuff
+//try to fade out just :nth-child or :gt(0) (greater than 0)
+//make this all happen with a for-loop
 
 
-$(document).ready(function() {
-  $('footer').animate({
-      opacity: 1,
-      top: 0
-    }, 'slow')
-  $('.downtown').click(function() {
+
+
+  $('.downtown').on('click', function() {
+    $('.downtownInfo td:gt(0)').remove();
     $('.downtownInfo')
       .hide()
       .append('<td>' + downtown.customersPerHour() + '</td>')
       .append('<td>' + downtown.donutsPerHour() + '</td>')
       .append('<td>' + downtown.donutsPerDay() + '</td>')
       .fadeIn();
+
+
   });
   $('.capitolHill').click(function() {
+    $('.capitolHillInfo td:gt(0)').remove();
     $('.capitolHillInfo')
       .hide()
       .append('<td>' + capitolHill.customersPerHour() + '</td>')
@@ -76,6 +79,7 @@ $(document).ready(function() {
       .fadeIn();
   });
   $('.sLUnion').click(function() {
+    $('.sLUnionInfo td:gt(0)').remove();
     $('.sLUnionInfo')
       .hide()
       .append('<td>' + sLakeUnion.customersPerHour() + '</td>')
@@ -84,6 +88,7 @@ $(document).ready(function() {
       .fadeIn();
   });
   $('.wedgewood').click(function() {
+    $('.wedgewoodInfo td:gt(0)').remove();
     $('.wedgewoodInfo')
       .hide()
       .append('<td>' + wedgewood.customersPerHour() + '</td>')
@@ -92,14 +97,20 @@ $(document).ready(function() {
       .fadeIn();
   });
   $('.ballard').click(function() {
+    $('.ballardInfo td:gt(0)').remove();
     $('.ballardInfo')
       .hide()
       .append('<td>' + ballard.customersPerHour() + '</td>')
       .append('<td>' + ballard.donutsPerHour() + '</td>')
       .append('<td>' + ballard.donutsPerDay() + '</td>')
       .fadeIn();
-
     });
+
+  $(document).ready(function() {
+  $('footer').animate({
+      opacity: 1,
+      top: 0
+    }, 'slow')
 });
 
 
