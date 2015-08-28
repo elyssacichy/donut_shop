@@ -10,8 +10,9 @@
   </header>
   <body>
     <h2>Baking Needs By Store:</h2>
-    <p>Click on any store location to find out how many donuts you will need to bake!</p>
-    <table>
+    <p>This table shows the donut baking needs of each Top Pot store location. Feel free to add more stores to the table by filling out the form below and clicking 'Update Table'. Also, try hovering over any store name to see it's address!</p>
+    <!-- <button class="buildTable">Show Table</button> -->
+    <table class="shopInfo">
       <thead>
         <tr>
           <th scope="col">Store Name</th>
@@ -19,23 +20,24 @@
           <th scope="col">Average Donuts per Hour</th>
           <th scope="col">Average Donuts per Day</th>
         </tr>
-        <tr class="downtownInfo">
-          <td><button class="downtown">Downtown</button></td>
-        </tr>
-        <tr class="capitolHillInfo">
-          <td><button class="capitolHill">Capitol Hill</button></td>
-        </tr>
-        <tr class="sLUnionInfo">
-          <td><button class="sLUnion">S. Lake Union</button></td>
-        </tr>
-        <tr class="wedgewoodInfo">
-          <td><button class="wedgewood">Wedgewood</button></td>
-        </tr>
-        <tr class="ballardInfo">
-          <td><button class="ballard">Ballard</button></td>
-        </tr>
       </thead>
     </table>
+    <p>To add a new shop location, please enter the information required in the form below.</p>
+    <form class="newShop">
+      Shop Name or Location:<br>
+      <input type="text" name="location">
+      <br>
+      Minimum Customers per Hour:<br>
+      <input type="num" name="minCustomers">
+      <br>
+      Maximum Customers per Hour:<br>
+      <input type="num" name="maxCustomers">
+      <br>
+      Average Donuts per Customer:<br>
+      <input type="num" name="aveDonuts">
+      <br><br>
+      <input type="submit" value="Update Table">
+    </form>
     <footer>
       <p>&copy; Elyssa Cichy</p>
       <a href="mailto:elyssacichy@gmail.com">elyssacichy@gmail.com</a>

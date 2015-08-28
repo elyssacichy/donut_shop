@@ -23,7 +23,7 @@ var Shop = function(minCustomers, maxCustomers, aveDonuts, location) {
     this.donutsPerHour = function() {
       var numDonuts = this.customersPerHour() * aveDonuts;
       numDonuts = Math.ceil(numDonuts);
-      console.log(numDonuts);
+      //console.log(numDonuts);
       return numDonuts;
     };
 
@@ -52,75 +52,57 @@ var topPot = new DonutMaster();
   topPot.addShop(ballard);
 
 //jQuery Stuff
-//try to fade out just :nth-child or :gt(0) (greater than 0)
-//make this all happen with a for-loop
 
-
-
-
-  $('.downtown').on('click', function() {
-    $('.downtownInfo td:gt(0)').remove();
-    $('.downtownInfo')
+function buildTable() {
+  $('.shopInfo tr:gt(0)').remove();
+  for(var i = 0; i < topPot.allLocations.length; i++) {
+    $('.shopInfo')
       .hide()
-      .append('<td>' + downtown.customersPerHour() + '</td>')
-      .append('<td>' + downtown.donutsPerHour() + '</td>')
-      .append('<td>' + downtown.donutsPerDay() + '</td>')
-      .fadeIn();
+      .append('<tr><td class=' + topPot.allLocations[i].location + '>' +
+        topPot.allLocations[i].location + '</td><td>' +
+        topPot.allLocations[i].customersPerHour() + '</td>' +
+        '<td>' + topPot.allLocations[i].donutsPerHour() + '</td>' +
+        '<td>' + topPot.allLocations[i].donutsPerDay() + '</td>' +
+        '</tr>')
+        .fadeIn();
+  };
+};
 
+$('table td.Downtown').on('mouseover', (function() {
+  console.log('This is the downtown store!');
+}));
 
-  });
-  $('.capitolHill').click(function() {
-    $('.capitolHillInfo td:gt(0)').remove();
-    $('.capitolHillInfo')
-      .hide()
-      .append('<td>' + capitolHill.customersPerHour() + '</td>')
-      .append('<td>' + capitolHill.donutsPerHour() + '</td>')
-      .append('<td>' + capitolHill.donutsPerDay() + '</td>')
-      .fadeIn();
-  });
-  $('.sLUnion').click(function() {
-    $('.sLUnionInfo td:gt(0)').remove();
-    $('.sLUnionInfo')
-      .hide()
-      .append('<td>' + sLakeUnion.customersPerHour() + '</td>')
-      .append('<td>' + sLakeUnion.donutsPerHour() + '</td>')
-      .append('<td>' + sLakeUnion.donutsPerDay() + '</td>')
-      .fadeIn();
-  });
-  $('.wedgewood').click(function() {
-    $('.wedgewoodInfo td:gt(0)').remove();
-    $('.wedgewoodInfo')
-      .hide()
-      .append('<td>' + wedgewood.customersPerHour() + '</td>')
-      .append('<td>' + wedgewood.donutsPerHour() + '</td>')
-      .append('<td>' + wedgewood.donutsPerDay() + '</td>')
-      .fadeIn();
-  });
-  $('.ballard').click(function() {
-    $('.ballardInfo td:gt(0)').remove();
-    $('.ballardInfo')
-      .hide()
-      .append('<td>' + ballard.customersPerHour() + '</td>')
-      .append('<td>' + ballard.donutsPerHour() + '</td>')
-      .append('<td>' + ballard.donutsPerDay() + '</td>')
-      .fadeIn();
-    });
-
-  $(document).ready(function() {
+$(document).ready(function() {
   $('footer').animate({
       opacity: 1,
       top: 0
-    }, 'slow')
+    }, 'slow');
+
+  buildTable();
+});
+
+$('input[type=submit]').on('click', function(event) {
+  event.preventDefault();
+  var elMin = $('input[name="minCustomers"]');
+  var elMax = $('input[name="maxCustomers"]');
+  var elAve = $('input[name="aveDonuts"]');
+  var elLoc = $('input[name="location"]');
+
+  var newShop = new Shop(parseInt(elMin.val()), parseInt(elMax.val()), parseInt(elAve.val()), elLoc.val());
+  topPot.addShop(newShop);
+
+  elMin.val('');
+  elMax.val('');
+  elAve.val('');
+  elLoc.val('');
+
+  buildTable();
 });
 
 
-
-// making sure jQuery works:
-// $(document).ready(function() {
-//   alert("Hi!");
-// });
-
-
+//mouseover, pop up googlemap or pic of location
+//get rid of show table button have table there on docready
+//
 
 
 
